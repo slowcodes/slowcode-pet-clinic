@@ -1,4 +1,4 @@
-package model;
+package ng.com.bitsystems.slowcodepetclinic.model;
 
 public class Person {
     private String firstName;

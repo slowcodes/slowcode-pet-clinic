@@ -1,4 +1,4 @@
-package model;
+package ng.com.bitsystems.slowcodepetclinic.model;
 
 import java.time.LocalDate;
 
@@ -8,11 +8,11 @@ public class Pet {
     private Owner owner;
     private LocalDate birthDate;
 
-    public model.petType getPetType() {
+    public ng.com.bitsystems.slowcodepetclinic.model.petType getPetType() {
         return petType;
     }
 
-    public void setPetType(model.petType petType) {
+    public void setPetType(ng.com.bitsystems.slowcodepetclinic.model.petType petType) {
         this.petType = petType;
     }
 
