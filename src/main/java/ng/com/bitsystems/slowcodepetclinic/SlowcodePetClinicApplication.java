@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SlowcodePetClinicApplication {
 
     public static void main(String[] args) {
+        //boiler plate
         SpringApplication.run(SlowcodePetClinicApplication.class, args);
     }
 
