@@ -1,0 +1,34 @@
+package ng.com.bitsystems.slowcodepetclinic.services.map;
+
+import ng.com.bitsystems.slowcodepetclinic.model.Pet;
+import ng.com.bitsystems.slowcodepetclinic.services.CrudService;
+
+import java.util.Set;
+
+public class PetServiceMap extends AbstractMapService<Pet, Long> implements CrudService<Pet, Long> {
+
+    @Override
+    public Set<Pet> findAll() {
+        return super.findAll();
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        super.deleteById(id);
+    }
+
+    @Override
+    public void delete(Pet object) {
+        super.delete(object);
+    }
+
+    @Override
+    public Pet findByID(Long id) {
+        return super.findById(id);
+    }
+
+    @Override
+    public Pet add(Pet object) {
+        return super.add(object.getId(),object);
+    }
+}
