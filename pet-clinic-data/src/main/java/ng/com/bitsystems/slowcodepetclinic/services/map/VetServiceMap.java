@@ -26,7 +26,6 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements Crud
         return super.findById(id);
     }
 
-
     @Override
     public Vet add(Vet object) {
         return super.add(object.getId(),object);
