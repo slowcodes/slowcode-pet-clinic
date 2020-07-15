@@ -1,0 +1,5 @@
+ng\com\bitsystems\slowcodepetclinic\model\Pet.class
+ng\com\bitsystems\slowcodepetclinic\model\petType.class
+ng\com\bitsystems\slowcodepetclinic\model\Owner.class
+ng\com\bitsystems\slowcodepetclinic\model\Vet.class
+ng\com\bitsystems\slowcodepetclinic\model\Person.class
