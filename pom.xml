@@ -14,7 +14,7 @@
     </parent>
     <groupId>ng.com.bitsystems</groupId>
     <artifactId>slowcode-pet-clinic</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>slowcode-pet-clinic</name>
     <description>An adaptation of John Thompson's sfg-pet-clinic</description>
 
@@ -49,6 +49,6 @@
 
     <scm>
         <developerConnection>scm:git:https://github.com/slowcodes/slowcode-pet-clinic.git</developerConnection>
-      <tag>slowcode-pet-clinic-0.0.1</tag>
+      <tag>HEAD</tag>
     </scm>
 </project>
