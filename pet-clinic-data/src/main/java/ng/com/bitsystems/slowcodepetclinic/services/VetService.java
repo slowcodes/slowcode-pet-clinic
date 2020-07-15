@@ -1,12 +1,8 @@
 package ng.com.bitsystems.slowcodepetclinic.services;
 
-import ng.com.bitsystems.slowcodepetclinic.model.Owner;
+import ng.com.bitsystems.slowcodepetclinic.model.Vet;
 
-import java.util.Set;
+public interface VetService extends CrudService<Vet, Long> {
 
-public interface VetService {
 
-    Owner findById(Long id);
-    Set<Owner> findAll();
-    Owner add();
 }
