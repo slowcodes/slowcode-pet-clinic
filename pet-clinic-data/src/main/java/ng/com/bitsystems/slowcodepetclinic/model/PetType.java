@@ -1,6 +1,6 @@
 package ng.com.bitsystems.slowcodepetclinic.model;
 
-public class petType {
+public class PetType extends BaseEntity{
 
     private String name;
 

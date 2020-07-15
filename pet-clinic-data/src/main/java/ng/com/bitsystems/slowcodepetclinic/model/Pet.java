@@ -2,17 +2,17 @@ package ng.com.bitsystems.slowcodepetclinic.model;
 
 import java.time.LocalDate;
 
-public class Pet {
+public class Pet extends BaseEntity {
 
-    private petType petType;
+    private PetType petType;
     private Owner owner;
     private LocalDate birthDate;
 
-    public ng.com.bitsystems.slowcodepetclinic.model.petType getPetType() {
+    public PetType getPetType() {
         return petType;
     }
 
-    public void setPetType(ng.com.bitsystems.slowcodepetclinic.model.petType petType) {
+    public void setPetType(PetType petType) {
         this.petType = petType;
     }
 
