@@ -1,11 +1,11 @@
 package ng.com.bitsystems.slowcodepetclinic.services.map;
 
 import ng.com.bitsystems.slowcodepetclinic.model.Vet;
-import ng.com.bitsystems.slowcodepetclinic.services.CrudService;
+import ng.com.bitsystems.slowcodepetclinic.services.VetService;
 
 import java.util.Set;
 
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudService<Vet, Long> {
+public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
     @Override
     public Set<Vet> findAll() {
         return super.findAll();

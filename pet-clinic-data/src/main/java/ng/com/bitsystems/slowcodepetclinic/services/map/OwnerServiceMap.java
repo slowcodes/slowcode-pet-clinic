@@ -1,11 +1,11 @@
 package ng.com.bitsystems.slowcodepetclinic.services.map;
 
 import ng.com.bitsystems.slowcodepetclinic.model.Owner;
-import ng.com.bitsystems.slowcodepetclinic.services.CrudService;
+import ng.com.bitsystems.slowcodepetclinic.services.OwnerService;
 
 import java.util.Set;
 
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements CrudService<Owner, Long> {
+public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
     @Override
     public Set<Owner> findAll() {
@@ -31,5 +31,10 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
     @Override
     public void deleteById(Long id) {
         super.deleteById(id);
+    }
+
+    @Override
+    public Owner findByLastName(String name) {
+        return null;
     }
 }
