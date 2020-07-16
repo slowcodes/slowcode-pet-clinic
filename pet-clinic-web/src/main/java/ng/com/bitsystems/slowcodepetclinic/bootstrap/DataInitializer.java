@@ -3,23 +3,23 @@ package ng.com.bitsystems.slowcodepetclinic.bootstrap;
 import ng.com.bitsystems.slowcodepetclinic.model.Owner;
 import ng.com.bitsystems.slowcodepetclinic.model.Vet;
 import ng.com.bitsystems.slowcodepetclinic.services.OwnerService;
-import ng.com.bitsystems.slowcodepetclinic.services.PetService;
 import ng.com.bitsystems.slowcodepetclinic.services.VetService;
 import ng.com.bitsystems.slowcodepetclinic.services.map.OwnerServiceMap;
-import ng.com.bitsystems.slowcodepetclinic.services.map.PetServiceMap;
 import ng.com.bitsystems.slowcodepetclinic.services.map.VetServiceMap;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
+@Component
 public class DataInitializer implements CommandLineRunner {
 
     private final OwnerService ownerService;
-    private final PetService petService;
+    //private final PetService petService;
     private final VetService vetService;
 
-    public DataInitializer(){
-        ownerService = new OwnerServiceMap();
-        petService = new PetServiceMap();
-        vetService = new VetServiceMap();
+    public DataInitializer(OwnerServiceMap ownerServiceMap, VetServiceMap vetServiceMap){
+        this.ownerService = ownerServiceMap;
+        //petService = new PetServiceMap();
+        this.vetService = vetServiceMap;
     }
 
     @Override
