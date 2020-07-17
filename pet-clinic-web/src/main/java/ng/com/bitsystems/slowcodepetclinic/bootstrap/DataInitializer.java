@@ -47,7 +47,8 @@ public class DataInitializer implements CommandLineRunner {
 
         Vet vet2 = new Vet();
         vet2.setLastName("Nancy");
-        vet2.setLastName("Odoh");
+        vet2.setFirstName("Odoh");
+        vet2.setId(2L);
         vetService.add(vet2);
         System.out.println("Completed vets initialization");
     }
