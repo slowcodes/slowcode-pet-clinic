@@ -30,6 +30,6 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetS
 
     @Override
     public Vet add(Vet object) {
-        return super.add(object.getId(),object);
+        return super.add(object);
     }
 }

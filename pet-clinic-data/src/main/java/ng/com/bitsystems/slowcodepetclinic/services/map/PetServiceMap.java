@@ -31,6 +31,6 @@ public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetS
 
     @Override
     public Pet add(Pet object) {
-        return super.add(object.getId(),object);
+        return super.add(object);
     }
 }
