@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: ng.com.bitsystems.slowcodepetclinic.tests.SlowcodePetClinicApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.314 s - in ng.com.bitsystems.slowcodepetclinic.tests.SlowcodePetClinicApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.775 s - in ng.com.bitsystems.slowcodepetclinic.tests.SlowcodePetClinicApplicationTests
