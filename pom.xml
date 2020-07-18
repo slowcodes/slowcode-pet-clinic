@@ -17,7 +17,6 @@
     <version>0.0.2-SNAPSHOT</version>
     <name>slowcode-pet-clinic</name>
     <description>An adaptation of John Thompson's sfg-pet-clinic</description>
-
     <properties>
         <java.version>1.8</java.version>
     </properties>
