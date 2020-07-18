@@ -1,5 +1,14 @@
-ng\com\bitsystems\slowcodepetclinic\model\Pet.class
-ng\com\bitsystems\slowcodepetclinic\model\petType.class
+ng\com\bitsystems\slowcodepetclinic\services\PetService.class
 ng\com\bitsystems\slowcodepetclinic\model\Owner.class
+ng\com\bitsystems\slowcodepetclinic\services\CrudService.class
+ng\com\bitsystems\slowcodepetclinic\services\map\OwnerServiceMap.class
+ng\com\bitsystems\slowcodepetclinic\services\map\VetServiceMap.class
+ng\com\bitsystems\slowcodepetclinic\model\BaseEntity.class
+ng\com\bitsystems\slowcodepetclinic\model\Pet.class
 ng\com\bitsystems\slowcodepetclinic\model\Vet.class
+ng\com\bitsystems\slowcodepetclinic\services\VetService.class
+ng\com\bitsystems\slowcodepetclinic\services\map\PetServiceMap.class
 ng\com\bitsystems\slowcodepetclinic\model\Person.class
+ng\com\bitsystems\slowcodepetclinic\model\PetType.class
+ng\com\bitsystems\slowcodepetclinic\services\map\AbstractMapService.class
+ng\com\bitsystems\slowcodepetclinic\services\OwnerService.class

@@ -1,1 +1,5 @@
+ng\com\bitsystems\slowcodepetclinic\controllers\VetController.class
+ng\com\bitsystems\slowcodepetclinic\controllers\IndexController.class
 ng\com\bitsystems\slowcodepetclinic\SlowcodePetClinicApplication.class
+ng\com\bitsystems\slowcodepetclinic\controllers\OwnerController.class
+ng\com\bitsystems\slowcodepetclinic\bootstrap\DataInitializer.class
