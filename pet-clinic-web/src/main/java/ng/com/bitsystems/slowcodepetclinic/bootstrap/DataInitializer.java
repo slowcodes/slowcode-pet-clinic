@@ -1,8 +1,10 @@
 package ng.com.bitsystems.slowcodepetclinic.bootstrap;
 
 import ng.com.bitsystems.slowcodepetclinic.model.Owner;
+import ng.com.bitsystems.slowcodepetclinic.model.PetType;
 import ng.com.bitsystems.slowcodepetclinic.model.Vet;
 import ng.com.bitsystems.slowcodepetclinic.services.OwnerService;
+import ng.com.bitsystems.slowcodepetclinic.services.PetTypeService;
 import ng.com.bitsystems.slowcodepetclinic.services.VetService;
 import ng.com.bitsystems.slowcodepetclinic.services.map.OwnerServiceMap;
 import ng.com.bitsystems.slowcodepetclinic.services.map.VetServiceMap;
@@ -15,15 +17,29 @@ public class DataInitializer implements CommandLineRunner {
     private final OwnerService ownerService;
     //private final PetService petService;
     private final VetService vetService;
+    private final PetTypeService petTypeService;
 
-    public DataInitializer(OwnerServiceMap ownerServiceMap, VetServiceMap vetServiceMap){
+    public DataInitializer(OwnerServiceMap ownerServiceMap, VetServiceMap vetServiceMap, PetTypeService petTypeService){
         this.ownerService = ownerServiceMap;
         //petService = new PetServiceMap();
         this.vetService = vetServiceMap;
+        this.petTypeService = petTypeService;
     }
 
     @Override
     public void run(String... args) throws Exception {
+
+        PetType petType1 = new PetType();
+        petType1.setName("Dog");
+        PetType dogPetType = petTypeService.add(petType1);
+
+        PetType petType2 = new PetType();
+        petType2.setName("Cow");
+        PetType cowPetType = petTypeService.add(petType2);
+
+        PetType petType3 = new PetType();
+        petType3.setName("Cat");
+        PetType catPetType = petTypeService.add(petType3);
 
         Owner owner1 = new Owner();
         owner1.setFirstName("Isilomo");
