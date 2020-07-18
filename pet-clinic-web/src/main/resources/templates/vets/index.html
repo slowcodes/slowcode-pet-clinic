@@ -17,11 +17,11 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="vet:${vets}">
-        <td th:text="${vet?.id}">1</td>
-        <td th:text="${vet.firstName}">Sleepy</td>
-        <td th:text="${vet.lastName}">Joe</td>
-    </tr>
+        <tr th:each="vet:${vets}">
+            <td th:text="${vet?.id}">1</td>
+            <td th:text="${vet.firstName}">Sleepy</td>
+            <td th:text="${vet.lastName}">Joe</td>
+        </tr>
     </tbody>
 </table>
 </body>
