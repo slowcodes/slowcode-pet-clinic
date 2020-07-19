@@ -1,15 +1,15 @@
 package ng.com.bitsystems.slowcodepetclinic.services.map;
 
-import ng.com.bitsystems.slowcodepetclinic.model.Specialty;
-import ng.com.bitsystems.slowcodepetclinic.services.SpecialtyService;
+import ng.com.bitsystems.slowcodepetclinic.model.Speciality;
+import ng.com.bitsystems.slowcodepetclinic.services.SpecialityService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
-public class SpecialtyMapService extends AbstractMapService<Specialty, Long> implements SpecialtyService {
+public class SpecialityMapService extends AbstractMapService<Speciality, Long> implements SpecialityService {
     @Override
-    public Set<Specialty> findAll() {
+    public Set<Speciality> findAll() {
         return super.findAll();
     }
 
@@ -19,17 +19,17 @@ public class SpecialtyMapService extends AbstractMapService<Specialty, Long> imp
     }
 
     @Override
-    public void delete(Specialty object) {
+    public void delete(Speciality object) {
         super.delete(object);
     }
 
     @Override
-    public Specialty add(Specialty object) {
+    public Speciality add(Speciality object) {
         return super.add(object);
     }
 
     @Override
-    public Specialty findByID(Long id) {
+    public Speciality findByID(Long id) {
         return super.findById(id);
     }
 }

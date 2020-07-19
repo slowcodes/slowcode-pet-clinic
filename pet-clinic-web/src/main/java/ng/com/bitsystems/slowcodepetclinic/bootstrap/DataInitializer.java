@@ -1,13 +1,13 @@
 package ng.com.bitsystems.slowcodepetclinic.bootstrap;
 
-import ng.com.bitsystems.slowcodepetclinic.model.Owner;
-import ng.com.bitsystems.slowcodepetclinic.model.Pet;
-import ng.com.bitsystems.slowcodepetclinic.model.PetType;
-import ng.com.bitsystems.slowcodepetclinic.model.Vet;
+import ng.com.bitsystems.slowcodepetclinic.model.*;
 import ng.com.bitsystems.slowcodepetclinic.services.OwnerService;
 import ng.com.bitsystems.slowcodepetclinic.services.PetTypeService;
+import ng.com.bitsystems.slowcodepetclinic.services.SpecialityService;
 import ng.com.bitsystems.slowcodepetclinic.services.VetService;
 import ng.com.bitsystems.slowcodepetclinic.services.map.OwnerServiceMap;
+import ng.com.bitsystems.slowcodepetclinic.services.map.PetTypeServiceMap;
+import ng.com.bitsystems.slowcodepetclinic.services.map.SpecialityMapService;
 import ng.com.bitsystems.slowcodepetclinic.services.map.VetServiceMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -18,20 +18,28 @@ import java.time.LocalDate;
 public class DataInitializer implements CommandLineRunner {
 
     private final OwnerService ownerService;
-    //private final PetService petService;
+    private final SpecialityService specialityService;
     private final VetService vetService;
     private final PetTypeService petTypeService;
 
-    public DataInitializer(OwnerServiceMap ownerServiceMap, VetServiceMap vetServiceMap, PetTypeService petTypeService){
+    public DataInitializer(OwnerServiceMap ownerServiceMap, VetServiceMap vetServiceMap,
+                           PetTypeServiceMap petTypeServiceMap, SpecialityMapService specialityMapService){
         this.ownerService = ownerServiceMap;
-        //petService = new PetServiceMap();
+        this.specialityService = specialityMapService;
         this.vetService = vetServiceMap;
-        this.petTypeService = petTypeService;
+        this.petTypeService = petTypeServiceMap;
     }
 
     @Override
     public void run(String... args) throws Exception {
 
+        if(petTypeService.findAll().size() ==0 ){
+            loadData();
+        }
+
+    }
+
+    private void loadData() {
         PetType petType1 = new PetType();
         petType1.setName("Dog");
         PetType dogPetType = petTypeService.add(petType1);
@@ -72,16 +80,25 @@ public class DataInitializer implements CommandLineRunner {
 
         System.out.println("Completed owner initialization...");
 
+
         Vet vet1 = new Vet();
         vet1.setFirstName("Ike");
         vet1.setLastName("Yinka");
 
+        Speciality surgery = new Speciality();
+        surgery.setDescription("Surgery");
+        Speciality savedSurgery = specialityService.add(surgery);
+        vet1.getSpecialties().add(surgery);
         vetService.add(vet1);
 
         Vet vet2 = new Vet();
         vet2.setLastName("Nancy");
         vet2.setFirstName("Odoh");
 
+        Speciality dentistry = new Speciality();
+        dentistry.setDescription("dentistry");
+        Speciality savedDentistry = specialityService.add(dentistry);
+        vet2.getSpecialties().add(dentistry);
         vetService.add(vet2);
         System.out.println("Completed vets initialization");
     }
