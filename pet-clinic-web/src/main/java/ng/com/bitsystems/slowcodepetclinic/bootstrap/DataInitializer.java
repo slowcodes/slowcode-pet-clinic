@@ -1,6 +1,7 @@
 package ng.com.bitsystems.slowcodepetclinic.bootstrap;
 
 import ng.com.bitsystems.slowcodepetclinic.model.Owner;
+import ng.com.bitsystems.slowcodepetclinic.model.Pet;
 import ng.com.bitsystems.slowcodepetclinic.model.PetType;
 import ng.com.bitsystems.slowcodepetclinic.model.Vet;
 import ng.com.bitsystems.slowcodepetclinic.services.OwnerService;
@@ -10,6 +11,8 @@ import ng.com.bitsystems.slowcodepetclinic.services.map.OwnerServiceMap;
 import ng.com.bitsystems.slowcodepetclinic.services.map.VetServiceMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
 
 @Component
 public class DataInitializer implements CommandLineRunner {
@@ -44,13 +47,27 @@ public class DataInitializer implements CommandLineRunner {
         Owner owner1 = new Owner();
         owner1.setFirstName("Isilomo");
         owner1.setLastName("Uchendu");
+        owner1.setAddress("#3 Monaque Avenue, Ind. Layout, Enugu");
+        owner1.setCity("Enugu");
+        owner1.setTel("08030719203");
 
+        Pet isilomoPet = new Pet();
+        isilomoPet.setPetType(dogPetType);
+        isilomoPet.setName("gloria");
+        isilomoPet.setBirthDate(LocalDate.now());
         ownerService.add(owner1);
 
         Owner owner2 = new Owner();
         owner2.setLastName("Eke");
         owner2.setFirstName("Olamide");
+        owner2.setAddress("#3 St. James Close, Ndiora Layout, Awka");
+        owner2.setCity("Onitsha");
+        owner2.setTel("08030719203");
 
+        Pet ekePet = new Pet();
+        ekePet.setName("uncleJude");
+        ekePet.setBirthDate(LocalDate.now());
+        ekePet.setPetType(cowPetType);
         ownerService.add(owner2);
 
         System.out.println("Completed owner initialization...");
