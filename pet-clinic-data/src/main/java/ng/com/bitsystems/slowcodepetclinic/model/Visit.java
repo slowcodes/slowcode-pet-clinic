@@ -7,8 +7,9 @@ import java.time.LocalDate;
 @Table(name = "Visits")
 public class Visit extends BaseEntity{
 
-    @Column
+    @Column(name = "visit_date")
     private LocalDate localDate;
+
     private String description;
 
     @ManyToOne()
