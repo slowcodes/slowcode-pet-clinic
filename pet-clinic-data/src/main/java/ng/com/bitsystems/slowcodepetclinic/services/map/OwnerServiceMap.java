@@ -3,11 +3,13 @@ package ng.com.bitsystems.slowcodepetclinic.services.map;
 import ng.com.bitsystems.slowcodepetclinic.model.Owner;
 import ng.com.bitsystems.slowcodepetclinic.model.Pet;
 import ng.com.bitsystems.slowcodepetclinic.services.OwnerService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default","map"})
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
     private PetServiceMap petServiceMap;

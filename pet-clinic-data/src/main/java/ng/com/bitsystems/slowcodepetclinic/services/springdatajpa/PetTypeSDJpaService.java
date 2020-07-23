@@ -1,46 +1,54 @@
 package ng.com.bitsystems.slowcodepetclinic.services.springdatajpa;
 
 import ng.com.bitsystems.slowcodepetclinic.model.PetType;
+import ng.com.bitsystems.slowcodepetclinic.repositories.PetTypeRepository;
 import ng.com.bitsystems.slowcodepetclinic.services.PetTypeService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
-@Profile("springdatajpa")
 @Service
+@Profile("springdatajpa")
 public class PetTypeSDJpaService implements PetTypeService {
-    private PetTypeService petTypeService;
+    private PetTypeRepository petTypeRepository;
 
-    public PetTypeSDJpaService(PetTypeService petTypeService) {
-        this.petTypeService = petTypeService;
+    public PetTypeSDJpaService(PetTypeRepository petTypeRepository) {
+        this.petTypeRepository = petTypeRepository;
     }
 
     @Override
     public Set<PetType> findAll() {
         Set<PetType> petTypes = new HashSet<>();
-        petTypeService.findAll().forEach(petTypes::add);
+        petTypeRepository.findAll().forEach(petTypes::add);
         return petTypes;
     }
 
     @Override
     public PetType findByID(Long aLong) {
-        return petTypeService.findByID(aLong);
+        Optional<PetType> petType = petTypeRepository.findById(aLong);
+        if(petType.isPresent()){
+            return petType.get();
+        }
+        else {
+            return null;
+        }
     }
 
     @Override
     public PetType add(PetType object) {
-        return petTypeService.add(object);
+        return petTypeRepository.save(object);
     }
 
     @Override
     public void delete(PetType object) {
-        petTypeService.delete(object);
+        petTypeRepository.delete(object);
     }
 
     @Override
     public void deleteById(Long aLong) {
-        petTypeService.deleteById(aLong);
+        petTypeRepository.deleteById(aLong);
     }
 }

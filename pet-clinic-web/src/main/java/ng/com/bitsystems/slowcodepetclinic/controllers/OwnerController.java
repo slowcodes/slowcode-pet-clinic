@@ -1,6 +1,6 @@
 package ng.com.bitsystems.slowcodepetclinic.controllers;
 
-import ng.com.bitsystems.slowcodepetclinic.services.map.OwnerServiceMap;
+import ng.com.bitsystems.slowcodepetclinic.services.OwnerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,15 +9,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/owners")
 public class OwnerController {
 
-    private final OwnerServiceMap ownerServiceMap;
+    private final OwnerService ownerService;
 
-    public OwnerController(OwnerServiceMap ownerServiceMap) {
-        this.ownerServiceMap = ownerServiceMap;
+    public OwnerController(OwnerService ownerService) {
+        this.ownerService = ownerService;
     }
 
     @RequestMapping({"", "/","/index.html", "/index"})
     public String listOwners(Model model){
-        model.addAttribute("owners",ownerServiceMap.findAll());
+        model.addAttribute("owners",ownerService.findAll());
 
         return "owners/index";
     }

@@ -2,7 +2,6 @@ package ng.com.bitsystems.slowcodepetclinic.bootstrap;
 
 import ng.com.bitsystems.slowcodepetclinic.model.*;
 import ng.com.bitsystems.slowcodepetclinic.services.*;
-import ng.com.bitsystems.slowcodepetclinic.services.map.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,14 +16,13 @@ public class DataInitializer implements CommandLineRunner {
     private final PetTypeService petTypeService;
     private final VisitService visitService;
 
-    public DataInitializer(OwnerServiceMap ownerServiceMap, VetServiceMap vetServiceMap,
-                           PetTypeServiceMap petTypeServiceMap, SpecialityMapService specialityMapService,
-                            VisitServiceMap visitServiceMap){
-        this.ownerService = ownerServiceMap;
-        this.specialityService = specialityMapService;
-        this.vetService = vetServiceMap;
-        this.petTypeService = petTypeServiceMap;
-        this.visitService = visitServiceMap;
+    public DataInitializer(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
+                           SpecialityService specialityService, VisitService visitService){
+        this.ownerService = ownerService;
+        this.specialityService = specialityService;
+        this.vetService = vetService;
+        this.petTypeService = petTypeService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -49,6 +47,15 @@ public class DataInitializer implements CommandLineRunner {
         petType3.setName("Cat");
         PetType catPetType = petTypeService.add(petType3);
 
+        Speciality surgery = new Speciality();
+        surgery.setDescription("Surgery");
+        Speciality savedSurgery = specialityService.add(surgery);
+
+
+        Speciality dentistry = new Speciality();
+        dentistry.setDescription("dentistry");
+        Speciality savedDentistry = specialityService.add(dentistry);
+
         Owner owner1 = new Owner();
         owner1.setFirstName("Isilomo");
         owner1.setLastName("Uchendu");
@@ -61,6 +68,8 @@ public class DataInitializer implements CommandLineRunner {
         isilomoPet.setName("gloria");
         isilomoPet.setBirthDate(LocalDate.now());
         isilomoPet.setOwner(owner1);
+
+        owner1.getPets().add(isilomoPet);
         ownerService.add(owner1);
 
         Owner owner2 = new Owner();
@@ -75,6 +84,8 @@ public class DataInitializer implements CommandLineRunner {
         ekePet.setBirthDate(LocalDate.now());
         ekePet.setPetType(cowPetType);
         ekePet.setOwner(owner2);
+
+        owner2.getPets().add(ekePet);
         ownerService.add(owner2);
 
         Visit visit = new Visit();
@@ -85,26 +96,18 @@ public class DataInitializer implements CommandLineRunner {
 
         System.out.println("Completed owner initialization...");
 
-
         Vet vet1 = new Vet();
         vet1.setFirstName("Ike");
         vet1.setLastName("Yinka");
-
-        Speciality surgery = new Speciality();
-        surgery.setDescription("Surgery");
-        Speciality savedSurgery = specialityService.add(surgery);
         vet1.getSpecialties().add(surgery);
         vetService.add(vet1);
 
         Vet vet2 = new Vet();
         vet2.setLastName("Nancy");
         vet2.setFirstName("Odoh");
-
-        Speciality dentistry = new Speciality();
-        dentistry.setDescription("dentistry");
-        Speciality savedDentistry = specialityService.add(dentistry);
         vet2.getSpecialties().add(dentistry);
         vetService.add(vet2);
+
         System.out.println("Completed vets initialization");
     }
 }

@@ -4,11 +4,13 @@ import ng.com.bitsystems.slowcodepetclinic.model.Speciality;
 import ng.com.bitsystems.slowcodepetclinic.model.Vet;
 import ng.com.bitsystems.slowcodepetclinic.services.SpecialityService;
 import ng.com.bitsystems.slowcodepetclinic.services.VetService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default","map"})
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
     private SpecialityService specialityService;
 
