@@ -1,14 +1,8 @@
 package ng.com.bitsystems.slowcodepetclinic.bootstrap;
 
 import ng.com.bitsystems.slowcodepetclinic.model.*;
-import ng.com.bitsystems.slowcodepetclinic.services.OwnerService;
-import ng.com.bitsystems.slowcodepetclinic.services.PetTypeService;
-import ng.com.bitsystems.slowcodepetclinic.services.SpecialityService;
-import ng.com.bitsystems.slowcodepetclinic.services.VetService;
-import ng.com.bitsystems.slowcodepetclinic.services.map.OwnerServiceMap;
-import ng.com.bitsystems.slowcodepetclinic.services.map.PetTypeServiceMap;
-import ng.com.bitsystems.slowcodepetclinic.services.map.SpecialityMapService;
-import ng.com.bitsystems.slowcodepetclinic.services.map.VetServiceMap;
+import ng.com.bitsystems.slowcodepetclinic.services.*;
+import ng.com.bitsystems.slowcodepetclinic.services.map.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -21,13 +15,16 @@ public class DataInitializer implements CommandLineRunner {
     private final SpecialityService specialityService;
     private final VetService vetService;
     private final PetTypeService petTypeService;
+    private final VisitService visitService;
 
     public DataInitializer(OwnerServiceMap ownerServiceMap, VetServiceMap vetServiceMap,
-                           PetTypeServiceMap petTypeServiceMap, SpecialityMapService specialityMapService){
+                           PetTypeServiceMap petTypeServiceMap, SpecialityMapService specialityMapService,
+                            VisitServiceMap visitServiceMap){
         this.ownerService = ownerServiceMap;
         this.specialityService = specialityMapService;
         this.vetService = vetServiceMap;
         this.petTypeService = petTypeServiceMap;
+        this.visitService = visitServiceMap;
     }
 
     @Override
@@ -63,6 +60,7 @@ public class DataInitializer implements CommandLineRunner {
         isilomoPet.setPetType(dogPetType);
         isilomoPet.setName("gloria");
         isilomoPet.setBirthDate(LocalDate.now());
+        isilomoPet.setOwner(owner1);
         ownerService.add(owner1);
 
         Owner owner2 = new Owner();
@@ -76,7 +74,14 @@ public class DataInitializer implements CommandLineRunner {
         ekePet.setName("uncleJude");
         ekePet.setBirthDate(LocalDate.now());
         ekePet.setPetType(cowPetType);
+        ekePet.setOwner(owner2);
         ownerService.add(owner2);
+
+        Visit visit = new Visit();
+        visit.setPet(ekePet);
+        visit.setDescription("Cunning Cow");
+        visit.setLocalDate(LocalDate.now());
+        visitService.add(visit);
 
         System.out.println("Completed owner initialization...");
 

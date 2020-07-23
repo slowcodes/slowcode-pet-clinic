@@ -2,10 +2,14 @@ package ng.com.bitsystems.slowcodepetclinic.services.springdatajpa;
 
 import ng.com.bitsystems.slowcodepetclinic.model.Speciality;
 import ng.com.bitsystems.slowcodepetclinic.services.SpecialityService;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Profile("springdatajpa")
+@Service
 public class VetSpecialtySDJpaService implements SpecialityService {
     private SpecialityService specialityService;
 

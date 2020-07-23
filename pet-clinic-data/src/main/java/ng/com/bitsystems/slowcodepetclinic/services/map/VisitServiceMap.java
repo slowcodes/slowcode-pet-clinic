@@ -2,9 +2,11 @@ package ng.com.bitsystems.slowcodepetclinic.services.map;
 
 import ng.com.bitsystems.slowcodepetclinic.model.Visit;
 import ng.com.bitsystems.slowcodepetclinic.services.VisitService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class VisitServiceMap extends AbstractMapService<Visit, Long> implements VisitService {
     @Override
     public Set<Visit> findAll() {
@@ -23,7 +25,7 @@ public class VisitServiceMap extends AbstractMapService<Visit, Long> implements 
 
     @Override
     public Visit add(Visit visit) {
-        if(visit.getPet().getId()==null || visit.getPet().getOwner() == null ||
+        if(visit.getPet().getOwner() == null ||
         visit.getPet()==null || visit.getPet().getOwner().getId() ==null){
             throw new RuntimeException("Pet and owner must be defined");
         }
