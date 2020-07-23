@@ -2,6 +2,7 @@ package ng.com.bitsystems.slowcodepetclinic.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Table(name = "pets")
@@ -20,6 +21,9 @@ public class Pet extends BaseEntity {
 
     @Column(name = "birth_date")
     private LocalDate birthDate;
+
+    @OneToMany (cascade = CascadeType.ALL, mappedBy = "visit_id")
+    private Set<Visit> visit;
 
     public String getName() {
         return name;
@@ -43,5 +47,21 @@ public class Pet extends BaseEntity {
 
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public Owner getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Owner owner) {
+        this.owner = owner;
+    }
+
+    public Set<Visit> getVisit() {
+        return visit;
+    }
+
+    public void setVisit(Set<Visit> visit) {
+        this.visit = visit;
     }
 }
