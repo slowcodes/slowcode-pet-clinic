@@ -5,6 +5,7 @@ import ng.com.bitsystems.slowcodepetclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import javax.transaction.Transactional;
 import java.time.LocalDate;
 
 @Component
@@ -16,6 +17,8 @@ public class DataInitializer implements CommandLineRunner {
     private final PetTypeService petTypeService;
     private final VisitService visitService;
 
+
+
     public DataInitializer(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
                            SpecialityService specialityService, VisitService visitService){
         this.ownerService = ownerService;
@@ -25,7 +28,9 @@ public class DataInitializer implements CommandLineRunner {
         this.visitService = visitService;
     }
 
+
     @Override
+    @Transactional
     public void run(String... args) throws Exception {
 
         if(petTypeService.findAll().size() ==0 ){
